@@ -6,8 +6,8 @@
 } */
 
 .containerWidth {
-  width: 90%;
-  max-width: 1200px;
-  min-width: 320px;
+  width: 93%;
+  max-width: 1250px;
+  min-width: 310px;
   margin: 0 auto;
 }

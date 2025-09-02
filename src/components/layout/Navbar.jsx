@@ -19,7 +19,7 @@ export const Navbar = () => {
         scrolled ? "backdrop-blur-[3.5px] shadow-sm bg-black/30" : "bg-white/0"
       }`}
     >
-      <nav className="containerWidth flex items-baseline justify-between py-5">
+      <nav className="containerWidth flex items-baseline justify-between py-6.5">
         <section className="w-1/7">
           <a
             href="/#inicio"
@@ -34,7 +34,6 @@ export const Navbar = () => {
         ) : (
           <span className="absolute left-0 bottom-0 w-full h-[2.5px] bg-gradient-to-r from-transparent via-transparent to-transparent"></span>
         )}
-
         <section className="hidden md:flex gap-4 capitalize text-lg">
           <ul className="flex gap-4">
             {buttons.map((item) => (
@@ -44,11 +43,7 @@ export const Navbar = () => {
             ))}
           </ul>
         </section>
-        <input
-          type="text"
-          placeholder="Buscar..."
-          className="hidden md:block w-1/7 px-3 py-1 border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
-        />
+        <div className="w-1/7"></div>
 
         <div className="md:hidden flex items-center">
           <button
@@ -85,28 +80,16 @@ export const Navbar = () => {
       {/* MOBILE */}
       {open && (
         <nav
-          className={`md:hidden  w-full px-5 py-3 shadow-md backdrop-blur-[3.5px] bg-white/30 ${
+          className={`md:hidden  w-full px-5 py-3 shadow-md backdrop-blur-[3.5px]  ${
             scrolled ? " shadow-sm " : "bg-white/0"
           }`}
         >
           <ul className="flex flex-col gap-3 capitalize text-lg">
-            {["home", "productos", "categorias", "Sobre nosotros"].map(
-              (item) => (
-                <li key={item}>
-                  <Button
-                    text={item}
-                    style="text-gray-800 hover:text-gray-950 hover:tracking-wide transition-all duration-300 w-full text-left"
-                  />
-                </li>
-              )
-            )}
-            <li>
-              <input
-                type="text"
-                placeholder="Buscar..."
-                className="w-full px-3 py-1 border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
-              />
-            </li>
+            {buttons.map((item) => (
+              <li key={item.text}>
+                <Button text={item.text} style={item.style} ref={item.ref} />
+              </li>
+            ))}
           </ul>
         </nav>
       )}

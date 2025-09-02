@@ -1,11 +1,13 @@
 import { useState } from "react";
-import img1 from "../../assets/img1.jpg";
-import img2 from "../../assets/img2.jpg";
+import { Link } from "react-router-dom";
+import img1 from "../../assets/img1.webp";
+import img2 from "../../assets/img2.webp";
 
 const cars = [
   {
     id: 1,
     title: "Mercedes-AMG GT 63 S",
+    anio: "2024",
     price: "$185,000",
     tag: "Deportivo",
     hp: "630 HP",
@@ -22,6 +24,7 @@ const cars = [
   {
     id: 2,
     title: "BMW X7 M50i",
+    anio: "2025",
     price: "$165,000",
     tag: "SUV de Lujo",
     hp: "523 HP",
@@ -35,16 +38,33 @@ const cars = [
     img1: img1,
     img2: img2,
   },
+  {
+    id: 3,
+    title: "Porsche Taycan Turbo S",
+    anio: "2025",
+    price: "$210,000",
+    tag: "Eléctrico Deportivo",
+    hp: "750 HP",
+    acceleration: "0-100 km/h: 2.8s",
+    motor: "Motores Eléctricos Dual",
+    features: [
+      "Autonomía de 450 km",
+      "Pantalla curva de 16,8''",
+      "Carga rápida de 270 kW",
+    ],
+    img1: img2,
+    img2: img1,
+  },
 ];
 
 export const FeaturedCars = () => {
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
-    <section className="py-20 bg-black text-white ">
+    <section id="autos" className="py-20 bg-black text-white ">
       <div className="containerWidth">
         <div className=" mx-auto text-center mb-12">
-          <span className="px-4 py-1 rounded-full text-sm border border-gray-600 uppercase">
+          <span className="px-4 py-1 rounded-full text-sm border border-gray-600 uppercase  ">
             Colección Exclusiva
           </span>
           <h2 className="text-4xl font-bold mt-4 uppercase">
@@ -56,7 +76,7 @@ export const FeaturedCars = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {cars.map((car) => (
             <div
               key={car.id}
@@ -64,7 +84,7 @@ export const FeaturedCars = () => {
             >
               {/* Imagen con hover para cambiar */}
               <div
-                className="relative w-full h-64 overflow-hidden"
+                className="relative w-full h-70 overflow-hidden"
                 onMouseEnter={() => setHoveredId(car.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
@@ -87,7 +107,7 @@ export const FeaturedCars = () => {
                   {car.tag}
                 </span>
                 <span className="absolute top-3 right-3 bg-black/70 px-2 py-1 text-xs rounded-lg">
-                  2024
+                  {car.anio}
                 </span>
               </div>
 
@@ -95,13 +115,13 @@ export const FeaturedCars = () => {
               <div className="p-6">
                 <h3 className="text-xl font-bold">{car.title}</h3>
                 <p className="text-blue-400 text-lg font-semibold">
-                  {car.price}
+                  USD {car.price}
                 </p>
 
                 <ul className="mt-3 text-sm text-gray-300 space-y-1">
                   <li>{car.hp}</li>
                   <li>{car.acceleration}</li>
-                  <li>{car.motor}</li>
+                  <li>Motor: {car.motor}</li>
                 </ul>
 
                 <ul className="mt-2 text-xs text-gray-400 space-y-1">
@@ -112,12 +132,15 @@ export const FeaturedCars = () => {
 
                 {/* Botones */}
                 <div className="flex gap-3 mt-5">
-                  <button className="flex-1 bg-blue-500 hover:bg-blue-600 text-sm py-2 rounded-lg transition">
+                  <Link
+                    to="/auto"
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-sm py-2 rounded-lg transition cursor-pointer text-center block text-white"
+                  >
                     Ver Detalles
-                  </button>
-                  <button className="flex-1 border border-blue-500 hover:bg-blue-500 hover:text-white text-sm py-2 rounded-lg transition">
+                  </Link>
+                  {/* <button className="flex-1 border border-blue-500 hover:bg-blue-500 hover:text-white text-sm py-2 rounded-lg transition cursor-pointer">
                     Agendar Prueba
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

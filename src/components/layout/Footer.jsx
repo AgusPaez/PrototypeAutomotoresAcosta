@@ -69,7 +69,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <a
-                  href="#inicio"
+                  href="/#inicio"
                   className="text-muted-foreground hover:text-accent transition-colors"
                 >
                   Inicio
@@ -77,7 +77,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#vehiculos"
+                  href="/catalogo"
                   className="text-muted-foreground hover:text-accent transition-colors"
                 >
                   Vehículos
@@ -85,7 +85,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#servicios"
+                  href="/#servicios"
                   className="text-muted-foreground hover:text-accent transition-colors"
                 >
                   Servicios
@@ -93,7 +93,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#nosotros"
+                  href="/#historia"
                   className="text-muted-foreground hover:text-accent transition-colors"
                 >
                   Nosotros
@@ -163,11 +163,11 @@ export const Footer = () => {
         <div className="border-t-[1px]  border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-muted-foreground text-sm mb-4 md:mb-0 text-gray-400">
-              © 2024 Prestige Motors. Todos los derechos reservados.
+              © 2025 Automotores Acosta. Todos los derechos reservados.
             </div>
             <div className="flex items-center space-x-4">
               <span variant="outline" className="text-xs text-gray-500">
-                💻 Desarrollado con pasión por Agustin Paez
+                Desarrollado por Agustin Paez
               </span>
             </div>
           </div>
